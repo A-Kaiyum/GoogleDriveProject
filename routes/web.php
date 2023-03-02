@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Models\Post;
-use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
@@ -21,20 +21,8 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::post('upload', function (Request $request) {
-    $file = $request->file('file');
-    $fileName = time().'_'.$file->getClientOriginalName();
-    $file ->store('' ,'google');
-    Post::create([
-        'title' =>$request->title,
-        'description'=> $request->description,
-        'uploaded_file'=>'uploads/'.$fileName,
-    ]);
-
-    $request->session()->flash('message', "File Successfully Uploaded!");
-
-    return back();
-});
+Route::post('upload', [PostController::class,'store'])->name('upload.file');
+Route::get('show', [PostController::class,'show'])->name('show.file');
 
 Route::get('test', function() {
     Storage::disk('google')->put('test.txt', 'Hello World');

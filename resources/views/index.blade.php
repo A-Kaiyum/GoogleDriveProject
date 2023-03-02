@@ -25,7 +25,12 @@
 
         @endif
          </div>
-        <form  method="POST" action="{{url('upload')}}" enctype="multipart/form-data">
+         <div>
+            <button class="btn bg-success">
+                <a href="{{route('show.file')}}">Show File</a>
+            </button>
+         </div>
+        <form  method="POST" action="{{route('upload.file')}}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="title">Title</label>
