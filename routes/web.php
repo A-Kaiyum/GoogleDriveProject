@@ -24,6 +24,7 @@ Route::get('/', function () {
 Route::post('upload', [PostController::class,'store'])->name('upload.file');
 Route::get('show', [PostController::class,'show'])->name('show.file');
 Route::get('/delete/{id}', [PostController::class,'delete'])->name('delete.file');
+Route::get('/download/{id}', [PostController::class,'download'])->name('download.file');
 
 Route::get('test', function() {
     Storage::disk('google')->put('test.txt', 'Hello World');

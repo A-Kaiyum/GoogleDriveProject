@@ -74,4 +74,10 @@ class PostController extends Controller
         Session::flash('message', "File Successfully Deleted!");
         return redirect()->route('home');
     }
+    public function download($id){
+
+        $getExtension = Storage::cloud()->getMetaData($id);
+        $data = Storage::cloud()->download($id,time().'.'.$getExtension['extension']);
+        $data->send();
+    }
 }
