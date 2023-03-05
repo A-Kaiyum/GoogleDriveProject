@@ -19,10 +19,11 @@ use Illuminate\Support\Facades\Storage;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
 Route::post('upload', [PostController::class,'store'])->name('upload.file');
 Route::get('show', [PostController::class,'show'])->name('show.file');
+Route::get('/delete/{id}', [PostController::class,'delete'])->name('delete.file');
 
 Route::get('test', function() {
     Storage::disk('google')->put('test.txt', 'Hello World');

@@ -27,8 +27,9 @@
          </div>
          <div>
             <button class="btn bg-success">
-                <a href="{{route('show.file')}}">Show File</a>
+                <a href="{{route('show.file')}}" class="text-decoration-none text-light">Show File</a>
             </button>
+
          </div>
         <form  method="POST" action="{{route('upload.file')}}" enctype="multipart/form-data">
             @csrf

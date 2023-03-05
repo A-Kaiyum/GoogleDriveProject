@@ -17,10 +17,20 @@
         </span></h2>
 
     <div class="container">
+
        {{-- <img src="{{$file}}" alt=""> --}}
        <div class="text-center">
-        <iframe width="600" height="400" src="{{$file}}">
+        <iframe width="600" height="400" src="{{$url}}">
         </iframe>
+
+       </div>
+       <div class="text-center">
+        <button class="btn bg-danger">
+            <a href="{{route('delete.file',$id)}}" class="text-decoration-none text-light">Delete File</a>
+        </button>
+        {{-- <button class="btn bg-warning">
+            <a href="{{route('download.file',$id)}}" class="text-decoration-none text-light">Download File</a>
+        </button> --}}
        </div>
     </div>
 
